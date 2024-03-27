@@ -22,22 +22,33 @@ while True:
         # https://www.w3schools.com/python/python_lists_add.asp
         title = input("Enter movie title: ")
         rating = input("Enter movie rating: ")
+        watched = input("Enter True or False if you've watched the film: ")
+        x = {
+            "title": title,
+            "rating": rating,
+            "watched": watched,
+        }
+        movies.append(x)
         pass
     elif choice == "2":
-        # https://www.w3schools.com/python/python_lists_sort.asp
-        # https://www.w3schools.com/python/python_dictionaries_access.asp
+        def sorting(lielakie_rating):
+            return int(lielakie_rating["rating"])
+        movies.sort(key = sorting, reverse = True)
+        print(movies)
         pass
     elif choice == "3":
-        # https://www.w3schools.com/python/python_lists_comprehension.asp
-        # https://www.w3schools.com/python/python_dictionaries_access.asp
+        def sorting(neskatitas_filmas):
+            return int(neskatitas_filmas["watched"])
+        movies.sort(key = sorting)
+        print(movies)
         pass
     elif choice == "4":
-        # https://www.w3schools.com/python/python_lists_change.asp
-        # https://www.w3schools.com/python/python_dictionaries_change.asp
         id = int(input("Enter the index of the movie to mark: "))
+        movies[id]["watched"] = True
     elif choice == "5":
         # https://www.w3schools.com/python/python_lists_remove.asp
         id = int(input("Enter the index of the movie to remove: "))
+        del movies[id]
     elif choice == "6":
         print("Exiting...")
         break
